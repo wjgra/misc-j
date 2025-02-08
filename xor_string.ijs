@@ -28,7 +28,7 @@ NB. The issue is that it optimises out the foreign!
 NB. To do: extract a. i. so that we can make the function self-inverting
 
 NB. This is the section without the foreign
-t =. ((([: ? 255 $~ [: $ a. i. ]) (22 b.) a. i. ]))
+t =. ([: ? 255 $~ [: $ a. i. ]) 22 b. a. i. ]
 
 NB. Tree representation
 NB.   5!:4 < 't'
@@ -49,7 +49,7 @@ NB.  +------+- i.
 NB.         +- ]
 
 NB. 'Factorise' the end of the branches:
-s =. ((([: ? 255 $~ [: $ ]) (22 b.) ]))
+s =. ([: ? 255 $~ [: $ ]) 22 b. ]
 
 NB. Usage
 NB.    fr 10
@@ -60,8 +60,24 @@ NB.    t string
 NB. is the same as
 NB.    xor_list_comb string
 
-NB. Rather than working out how to make something tacit, just use dummy verbs:
-NB.    13 : 'f y ] g x' NB. This is wrong...
-NB. [: f ] ] [: g [
+NB. Example
+NB.    fr 10
 
-s_fr =. [: s ] ] [: fr [
+NB.    out =. s a. i. string
+
+NB.    out
+NB. 81 12 175 119 231 108 212 38 140 156 247 77
+
+NB.    fr 10
+
+NB.    out2 =. s out
+NB.    out2
+NB. 72 101 108 108 111 44 32 65 67 67 85 33
+
+NB.    out2 { a.
+NB. Hello, ACCU!
+
+NB. Rather than working out how to make something tacit, just use dummy verbs:
+NB.    13 : 'f y ] g x'
+NB. [: f ] ] [: g [
+NB. You have to be careful when using foreigns with side-effects, as they may be incorrectly optimised out.
