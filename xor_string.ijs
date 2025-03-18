@@ -32,7 +32,7 @@ NB. XORs the generated list with a list of ASCII codes
 xor_list =. gen_list xor a. i. ]
 
 NB. Setting the random seed requires use of foreigns.
-rs =. 9!:1
+rs =: 9!:1
 NB. Note that rs n is the same as (9!:1) n NOT 9!:1 n
 NB.    9!:1 100
 NB. |rank error, executing conj !:
@@ -93,7 +93,7 @@ NB.  +------+- i.
 NB.         +- ]
 
 NB. This allows us to 'factorise' the end of the branches:
-s =. ([: ? 255 $~ [: $ ]) 22 b. ]
+s =: ([: ? 255 $~ [: $ ]) 22 b. ]
 
 NB. Usage
 NB.    rs 10
@@ -116,3 +116,14 @@ NB.    out2
 NB. 72 101 108 108 111 44 32 65 67 67 85 33
 NB.    out2 { a.
 NB. Hello, ACCU! NB. We have recovered the input!
+
+NB. Final program for submission
+xor_list =: {{ (([: ? 255 $~ [: $ ]) 22 b. ]) y [ 9!:1 x }} 
+NB. Example
+NB.    output =: 10 xor_list a. i. 'Hello, ACCU!'
+NB.    output
+NB. 81 12 175 119 231 108 212 38 140 156 247 77
+NB.    (10 xor_list output) { a.
+NB. Hello, ACCU!
+NB.    (42 xor_list output) { a. 
+NB. â"O/ïÕ?ûÇøI⌂uK
