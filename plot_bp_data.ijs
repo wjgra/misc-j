@@ -6,7 +6,7 @@ plot_bp_data =: {{
     NB. Load the datafile into a string and split into rows on LFs (ignoring CRs)
     datafile =. {{(LF=y) <;._2 y}}((CR-.~fread < y), LF)
 
-    headings =. ;:>{. datafile
+    headings =. >;:>{. datafile
     data =. }. datafile
 
     NB. Strip any boxed empties caused by extra newlines and convert strings to numerics
@@ -21,7 +21,7 @@ plot_bp_data =: {{
     options =. options, 'xcaption Day of measurement; '
     options =. options, 'ycaption Blood pressure (mmHg); '
     options =. options, 'keypos left middle inside; '
-    options =. options, 'key ', }.,/',',.>headings
+    options =. options, 'key ', }.,/',',.headings
 
     options plot (] (; |:) ~ [: i. #)mva_data
 }}
