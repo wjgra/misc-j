@@ -1,4 +1,4 @@
-NB. This file is a sketch of a solution to ACCU Homework Challenge 26, as set in C Vu, 36(6):10-13, January 2024
+NB. This file is a sketch of a solution to ACCU Homework Challenge 26, as set in C Vu, 36(6):10-13, January 2025
 NB. The challenge is a simple one: write a program that takes a file/string as input and a random seed, and 
 NB. XOR the bytes of the input with random bytes generated using the seed. The only constraint is that feeding 
 NB. the output into the program again with the same seed should recover the original input.
